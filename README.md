@@ -31,11 +31,12 @@ Go to your [GitHub developer settings](https://github.com/settings/tokens)
 to create a personal access token.
 
 Export this token as `GITHUB_TOKEN` in the terminal you're going to run
-the script in. On macOS this can be done by copying the token to
-clipboard then running:
+the script in:
 
-```sh
-export GITHUB_TOKEN=$(pbpaste)
+```console
+$ read GITHUB_TOKEN
+Paste the token here
+$ export GITHUB_TOKEN
 ```
 
 ### 2. Dump the project as JSON
@@ -66,12 +67,13 @@ their [API getting started documentation](https://developers.notion.com/docs/get
 Go to the [my integrations](https://www.notion.so/my-integrations) page
 and create a new integration.
 
-Export the token they give you `NOTION_TOKEN` in the terminal you're
-running the script. On macOS this can be done by copying the token to
-clipboard then running:
+Export the token they give you as `NOTION_TOKEN` in the terminal you're
+running the script.
 
-```sh
-export NOTION_TOKEN=$(pbpaste)
+```console
+$ read NOTION_TOKEN
+Paste the token here
+$ export NOTION_TOKEN
 ```
 
 ### 4. Share a database with your integration
