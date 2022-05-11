@@ -57,6 +57,10 @@ the project to, you need to share that database with your integration.
 Use the "share" button on the top right of your Notion database page to
 add your integration.
 
+![Share](share.png)
+
+![Invite](invite.png)
+
 ### 5. Find the database ID
 
 Typically it'll be the ID in the path of the URL of the database when
