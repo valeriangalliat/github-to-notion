@@ -30,6 +30,14 @@ npm install
 Go to your [GitHub developer settings](https://github.com/settings/tokens)
 to create a personal access token.
 
+Export this token as `GITHUB_TOKEN` in the terminal you're going to run
+the script in. On macOS this can be done by copying the token to
+clipboard then running:
+
+```sh
+export GITHUB_TOKEN=$(pbpaste)
+```
+
 ### 2. Dump the project as JSON
 
 Use the `dump-github-project.js` script to dump the project of your
@@ -37,10 +45,11 @@ choice as JSON. It will fetch all the columns and all the cards in each
 column, and the associated issues.
 
 ```sh
-GITHUB_TOKEN=your-github-token node dump-github-project.js <project-url> > project.json
+node dump-github-project.js <project-url> > project.json
 ```
 
-The project URL typically looks like:
+Where `<project-url>` is your GitHub project URL, which typically looks
+like this:
 
 ```
 https://github.com/owner/repo/projects/42
@@ -55,8 +64,15 @@ create an integration for this to work. We'll follow the steps from
 their [API getting started documentation](https://developers.notion.com/docs/getting-started).
 
 Go to the [my integrations](https://www.notion.so/my-integrations) page
-and create a new integration. Take note of the token they give you as
-we'll use it later.
+and create a new integration.
+
+Export the token they give you `NOTION_TOKEN` in the terminal you're
+running the script. On macOS this can be done by copying the token to
+clipboard then running:
+
+```sh
+export NOTION_TOKEN=$(pbpaste)
+```
 
 ### 4. Share a database with your integration
 
@@ -89,7 +105,7 @@ For convenience I added a script that lists the databases shared with
 your integration:
 
 ```sh
-NOTION_TOKEN=your-notion-token node list-notion-databases.js
+node list-notion-databases.js
 ```
 
 Example output:
@@ -101,8 +117,11 @@ Hello: 3754a4b06b3b42089b16f01d00d969db
 ### 6. Import the project to Notion
 
 ```sh
-NOTION_TOKEN=your-notion-token node import-to-notion.js project.json <database-id> 'Status' 'Label'
+node import-to-notion.js project.json <database-id> 'Status' 'Label'
 ```
+
+Where `<database-id>` is the ID of the database you identified in the
+previous step.
 
 In this example, `Status` is the field that will receive the GitHub
 column name, and `Label` is the field that will receive all the GitHub
