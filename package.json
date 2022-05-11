@@ -3,7 +3,6 @@
   "dependencies": {
     "@notionhq/client": "^1.0.4",
     "@octokit/rest": "^18.12.0",
-    "@tryfabric/martian": "^1.2.0",
-    "csv": "^6.0.5"
+    "@tryfabric/martian": "^1.2.0"
   }
 }
