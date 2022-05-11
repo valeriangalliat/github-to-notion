@@ -5,7 +5,7 @@ import { Client } from '@notionhq/client'
 import { markdownToBlocks } from '@tryfabric/martian'
 
 if (process.argv.length < 6) {
-  console.error('Usage: node import-to-notion.js <project-file> <database-id> <column-field> <label-field>')
+  console.error('Usage: node import-to-notion.js <project-file> <database-id> <column-field> <label-field> [<imported-field>]')
   process.exit(1)
 }
 
@@ -20,6 +20,7 @@ const projectFile = process.argv[2]
 const id = process.argv[3]
 const columnField = process.argv[4]
 const labelField = process.argv[5]
+const importedField = process.argv[6]
 const project = JSON.parse(await fs.readFile(projectFile))
 
 const notion = new Client({
@@ -74,6 +75,12 @@ async function createPage (column, card) {
         ]
       },
       [columnField]: selectOrMultiselect(columnField, [column.name])
+    }
+  }
+
+  if (importedField) {
+    payload.properties[importedField] = {
+      checkbox: true
     }
   }
 
