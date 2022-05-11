@@ -2,6 +2,15 @@
 
 > Migrate GitHub project data to a Notion database.
 
+## Overview
+
+Take all the cards from a GitHub project, whether they're notes or
+issues, and import their content in a Notion database.
+
+You can configure what Notion property the GitHub column name will go
+in, as well as a Notion select or multiselect to put the GitHub issue
+labels.
+
 ## Requirements
 
 [Node.js](https://nodejs.org/) version 18 or later.
